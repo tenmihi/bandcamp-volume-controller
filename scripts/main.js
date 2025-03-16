@@ -43,18 +43,24 @@ const createSliderControlls = () => {
   return $slider
 }
 
-const sliderValue2Volume = (val) => {
-  return (val / 100.0) ** 2;
-}
-
 const init = () => {
   const $audioElements = $('audio');
   if ($audioElements.length == 0) return;
 
   $slider = createSliderControlls();
 
+  const setVolume = (val) => {
+    const volume = (val / 100.0) ** 2;
+
+    $audioElements.each(function () {
+      $(this).prop('volume', volume);
+    });
+  }
+
   chrome.storage.sync.get([CHROME_SYNC_STORAGE_KEY], (result) => {
     const savedVolume = result.bandcampVolume || 50;
+
+    setVolume(savedVolume);
 
     $slider.slider({
       range: "min",
@@ -62,10 +68,7 @@ const init = () => {
       max: 100,
       value: savedVolume,
       slide: (_, ui) => {
-        const volume = sliderValue2Volume(ui.value)
-        $audioElements.each(function () {
-          $(this).prop('volume', volume);
-        });
+        setVolume(ui.value)
       },
       stop: (_, ui) => {
         chrome.storage.sync.set({ [CHROME_SYNC_STORAGE_KEY]: ui.value });
