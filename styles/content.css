@@ -1,0 +1,41 @@
+.inline_player .play_cell {
+  vertical-align: top !important;
+}
+
+.volumecontrolextension_cell {
+  display: flex;
+  align-items: center;
+  margin: 0.5em 0.833333em 0;
+}
+
+.volumecontrolextension_cell .slider {
+  position: relative;
+  width: 100px;
+  background-color: rgba(246,246,246,.1);
+  background-image: none;
+  border: 1px solid rgba(190, 190, 190, 0.5);
+  border-radius: 1px;
+  height: 8px;
+}
+
+.volumecontrolextension_cell .icon {
+  display: flex;
+  color: #f6f6f6;
+  width: 18px;
+  height: 18px;
+  margin-right: 5px;
+}
+
+.volumecontrolextension_cell .slider .ui-slider-range-min {
+  position: absolute;
+  background-color: rgba(254,254,254,.1);
+  background: #f6f6f6;
+  border-radius: 1px;
+  height: 8px;
+}
+
+.volumecontrolextension_cell .slider .ui-slider-handle {
+  width: 20px;
+  height: 20px;
+  opacity: 0;
+}
