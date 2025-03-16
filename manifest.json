@@ -1,7 +1,7 @@
 {
   "name": "Bandcamp Volume Controller",
   "description": "Add volume controller to bandcamp inline player.",
-  "version": "1.0.0",
+  "version": "2025.03.16",
   "manifest_version": 3,
   "action": {
     "default_popup": "views/popup.html",
